@@ -1,353 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xinrong Zhu - Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#about" class="nav-brand">Xinrong Zhu</a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#about" class="nav-link">Character</a></li>
-                <li class="nav-item"><a href="#stats" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link">Lore</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+  <div class="screen">
 
-    <div class="game-container">
-        <!-- Character Profile Section -->
-        <div class="character-card">
-            <div class="card-header" id="about">
-                <!-- Profile Section: Picture and Name on Left, Bio and Links on Right -->
-                <div class="profile-section">
-                    <div class="profile-left">
-                        <div class="avatar-frame">
-                            <div class="avatar-placeholder">
-                                <img src="images/headshot.png" alt="Xinrong Zhu" class="avatar-image">
-                            </div>
-                        </div>
-                        <div class="level">LEVEL 25</div>
-                    </div>
-
-                    <div class="profile-right">
-                        <h1 class="character-name">Xinrong Zhu</h1>
-                        <div class="bio-section">
-                            <h2 class="bio-title">ABOUT ME</h2>
-                            <p class="bio-text">
-                                Passionate robotics engineer specializing in autonomous systems,
-                                mechatronics design, and AI integration. Experienced in building
-                                intelligent machines that bridge the gap between software and hardware.
-                            </p>
-                        </div>
-
-                        <div class="contact-links" id="contact">
-                            <a href="mailto:your.email@example.com" class="contact-item">
-                                <span class="contact-icon">📧</span>
-                                <span class="contact-text">EMAIL</span>
-                            </a>
-                            <a href="resume.pdf" class="contact-item" download>
-                                <span class="contact-icon">📄</span>
-                                <span class="contact-text">RESUME</span>
-                            </a>
-                            <a href="https://linkedin.com/in/yourusername" class="contact-item" target="_blank">
-                                <span class="contact-icon">💼</span>
-                                <span class="contact-text">LINKEDIN</span>
-                            </a>
-                            <a href="https://github.com/yourusername" class="contact-item" target="_blank">
-                                <span class="contact-icon">💻</span>
-                                <span class="contact-text">GITHUB</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projects Section -->
-            <div class="projects-highlight-section">
-                <h2 class="section-title">🎯 FEATURED PROJECTS</h2>
-                <div class="projects-highlight-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-icon">🤖</span>
-                            <h3 class="project-title">Autonomous Navigation Robot</h3>
-                        </div>
-                        <p class="project-description">
-                            Developed a mobile robot capable of autonomous navigation using ROS, LIDAR, and computer vision for obstacle detection and path planning.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">ROS</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Computer Vision</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-icon">🦾</span>
-                            <h3 class="project-title">Robotic Arm Control System</h3>
-                        </div>
-                        <p class="project-description">
-                            Designed and programmed a 6-DOF robotic arm with inverse kinematics, precision control, and object manipulation capabilities.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Arduino</span>
-                            <span class="project-tag">C++</span>
-                            <span class="project-tag">Kinematics</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-icon">👁️</span>
-                            <h3 class="project-title">Machine Vision Inspection</h3>
-                        </div>
-                        <p class="project-description">
-                            Built an automated quality inspection system using deep learning for defect detection in manufacturing processes.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">TensorFlow</span>
-                            <span class="project-tag">OpenCV</span>
-                            <span class="project-tag">Deep Learning</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-body">
-                <!-- Status Bars Section -->
-                <div class="status-section" id="stats">
-                    <div class="status-bars">
-                        <div class="bar-container">
-                            <div class="bar-label">HP (HEALTH POINTS)</div>
-                            <div class="bar">
-                                <div class="bar-fill hp-bar" data-value="95"></div>
-                                <span class="bar-text">95/100</span>
-                            </div>
-                        </div>
-                        <div class="bar-container">
-                            <div class="bar-label">MP (MOTIVATION POINTS)</div>
-                            <div class="bar">
-                                <div class="bar-fill mp-bar" data-value="88"></div>
-                                <span class="bar-text">88/100</span>
-                            </div>
-                        </div>
-                        <div class="bar-container">
-                            <div class="bar-label">XP (EXPERIENCE)</div>
-                            <div class="bar">
-                                <div class="bar-fill xp-bar" data-value="73"></div>
-                                <span class="bar-text">7300/10000</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Core Stats -->
-                <div class="stats-section">
-                    <h2 class="section-title">⚡ CORE ATTRIBUTES</h2>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-icon">🧠</span>
-                            <span class="stat-name">INTELLIGENCE</span>
-                            <span class="stat-value">92</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-icon">🔧</span>
-                            <span class="stat-name">DEXTERITY</span>
-                            <span class="stat-value">85</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-icon">💪</span>
-                            <span class="stat-name">STRENGTH</span>
-                            <span class="stat-value">78</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-icon">⚡</span>
-                            <span class="stat-name">AGILITY</span>
-                            <span class="stat-value">80</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-icon">🎯</span>
-                            <span class="stat-name">PRECISION</span>
-                            <span class="stat-value">90</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-icon">🤝</span>
-                            <span class="stat-name">TEAMWORK</span>
-                            <span class="stat-value">87</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skills Section -->
-                <div class="skills-section" id="skills">
-                    <h2 class="section-title">🎮 SKILL TREE</h2>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-level="5">
-                            <div class="skill-header">
-                                <span class="skill-name">Robot Programming</span>
-                                <span class="skill-level">LVL 5</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="5">
-                            <div class="skill-header">
-                                <span class="skill-name">CAD Design</span>
-                                <span class="skill-level">LVL 5</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="4">
-                            <div class="skill-header">
-                                <span class="skill-name">Machine Learning</span>
-                                <span class="skill-level">LVL 4</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="80"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="5">
-                            <div class="skill-header">
-                                <span class="skill-name">Circuit Design</span>
-                                <span class="skill-level">LVL 5</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="4">
-                            <div class="skill-header">
-                                <span class="skill-name">Computer Vision</span>
-                                <span class="skill-level">LVL 4</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="75"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="3">
-                            <div class="skill-header">
-                                <span class="skill-name">Control Systems</span>
-                                <span class="skill-level">LVL 3</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="60"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Equipment/Tools Section -->
-                <div class="equipment-section">
-                    <h2 class="section-title">🛠️ EQUIPPED TOOLS</h2>
-                    <div class="equipment-grid">
-                        <div class="equipment-item legendary">
-                            <div class="equipment-icon">🔬</div>
-                            <div class="equipment-info">
-                                <div class="equipment-name">Python IDE</div>
-                                <div class="equipment-rarity">Legendary</div>
-                            </div>
-                        </div>
-                        <div class="equipment-item epic">
-                            <div class="equipment-icon">⚙️</div>
-                            <div class="equipment-info">
-                                <div class="equipment-name">ROS Framework</div>
-                                <div class="equipment-rarity">Epic</div>
-                            </div>
-                        </div>
-                        <div class="equipment-item epic">
-                            <div class="equipment-icon">📐</div>
-                            <div class="equipment-info">
-                                <div class="equipment-name">SolidWorks</div>
-                                <div class="equipment-rarity">Epic</div>
-                            </div>
-                        </div>
-                        <div class="equipment-item rare">
-                            <div class="equipment-icon">🔌</div>
-                            <div class="equipment-info">
-                                <div class="equipment-name">Arduino Kit</div>
-                                <div class="equipment-rarity">Rare</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Achievements Section -->
-                <div class="achievements-section">
-                    <h2 class="section-title">🏆 ACHIEVEMENTS UNLOCKED</h2>
-                    <div class="achievements-grid">
-                        <div class="achievement-item unlocked">
-                            <span class="achievement-icon">🎓</span>
-                            <div class="achievement-info">
-                                <div class="achievement-name">Academic Master</div>
-                                <div class="achievement-desc">Completed Robotics Engineering Degree</div>
-                            </div>
-                        </div>
-                        <div class="achievement-item unlocked">
-                            <span class="achievement-icon">🤖</span>
-                            <div class="achievement-info">
-                                <div class="achievement-name">First Build</div>
-                                <div class="achievement-desc">Built and programmed first robot</div>
-                            </div>
-                        </div>
-                        <div class="achievement-item unlocked">
-                            <span class="achievement-icon">👥</span>
-                            <div class="achievement-info">
-                                <div class="achievement-name">Team Leader</div>
-                                <div class="achievement-desc">Led a robotics project team</div>
-                            </div>
-                        </div>
-                        <div class="achievement-item locked">
-                            <span class="achievement-icon">🌟</span>
-                            <div class="achievement-info">
-                                <div class="achievement-name">Innovation Master</div>
-                                <div class="achievement-desc">Patent pending technology</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quest Log / Projects -->
-                <div class="quests-section" id="projects">
-                    <h2 class="section-title">📋 ACTIVE QUESTS</h2>
-                    <div class="quest-item in-progress">
-                        <div class="quest-header">
-                            <span class="quest-icon">⚔️</span>
-                            <span class="quest-title">Autonomous Navigation System</span>
-                            <span class="quest-status">IN PROGRESS</span>
-                        </div>
-                        <div class="quest-progress">
-                            <div class="quest-progress-bar" data-progress="65"></div>
-                        </div>
-                    </div>
-                    <div class="quest-item completed">
-                        <div class="quest-header">
-                            <span class="quest-icon">✅</span>
-                            <span class="quest-title">Robotic Arm Calibration</span>
-                            <span class="quest-status">COMPLETED</span>
-                        </div>
-                    </div>
-                    <div class="quest-item available">
-                        <div class="quest-header">
-                            <span class="quest-icon">📌</span>
-                            <span class="quest-title">Machine Learning Integration</span>
-                            <span class="quest-status">AVAILABLE</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Navigation Tabs -->
+    <div class="tabs-wrapper">
+      <h1 class="main-title">Character Stats</h1>
+      <div class="tabs">
+        <div class="arrow-left">◀</div>
+        <a href="#projects" class="tab active" data-tab="projects">Projects</a>
+        <a href="#about" class="tab" data-tab="about">Lore</a>
+        <a href="#stats" class="tab" data-tab="stats">Stats</a>
+        <a href="#skills" class="tab" data-tab="skills">Skills</a>
+        <div class="arrow">▶</div>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Main panels -->
+    <div class="content">
+      <!-- Left Panel: Profile -->
+      <div class="panel large" id="about">
+        <div class="profile-container">
+          <div class="avatar-frame">
+            <img src="images/headshot.png" alt="Xinrong Zhu" class="avatar-image">
+          </div>
+          <h1 class="character-name">Xinrong Zhu</h1>
+
+          <!-- Contact buttons under profile -->
+          <div class="contact-links-right">
+            <a href="mailto:your.email@example.com" class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <span class="contact-text">Contact</span>
+            </a>
+            <a href="resume.pdf" class="contact-item" download>
+              <i class="fas fa-file-alt contact-icon"></i>
+              <span class="contact-text">Resume</span>
+            </a>
+            <a href="https://linkedin.com/in/yourusername" class="contact-item" target="_blank">
+              <i class="fab fa-linkedin contact-icon"></i>
+              <span class="contact-text">LinkedIn</span>
+            </a>
+            <a href="https://github.com/yourusername" class="contact-item" target="_blank">
+              <i class="fab fa-github contact-icon"></i>
+              <span class="contact-text">GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel: Content -->
+      <div class="panel side">
+        <!-- About -->
+        <div id="about-text">
+          <h2 class="section-title">About Me</h2>
+          <p class="bio-text-left">
+            Passionate robotics engineer specializing in autonomous systems,
+            mechatronics design, and AI integration. Experienced in building
+            intelligent machines that bridge the gap between software and hardware.
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div id="stats">
+          <h2 class="section-title">Stats</h2>
+          <div class="status-bars">
+            <div class="bar-container">
+              <div class="bar-label">HP (HEALTH POINTS)</div>
+              <div class="bar">
+                <div class="bar-fill hp-bar" data-value="95"></div>
+                <span class="bar-text">95/100</span>
+              </div>
+            </div>
+            <div class="bar-container">
+              <div class="bar-label">MP (MOTIVATION POINTS)</div>
+              <div class="bar">
+                <div class="bar-fill mp-bar" data-value="88"></div>
+                <span class="bar-text">88/100</span>
+              </div>
+            </div>
+            <div class="bar-container">
+              <div class="bar-label">XP (EXPERIENCE)</div>
+              <div class="bar">
+                <div class="bar-fill xp-bar" data-value="73"></div>
+                <span class="bar-text">7300/10000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div id="projects">
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="projects-grid-left">
+            <div class="project-card">
+              <div class="project-icon">🤖</div>
+              <h3 class="project-title">Autonomous Navigation Robot</h3>
+              <p class="project-description">
+                Developed a mobile robot capable of autonomous navigation using ROS, LIDAR, and computer vision.
+              </p>
+              <div class="project-tags">
+                <span class="tag">ROS</span>
+                <span class="tag">Python</span>
+                <span class="tag">Computer Vision</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-icon">🦾</div>
+              <h3 class="project-title">Robotic Arm Control</h3>
+              <p class="project-description">
+                Designed a 6-DOF robotic arm with inverse kinematics and precision control.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Arduino</span>
+                <span class="tag">C++</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-icon">👁️</div>
+              <h3 class="project-title">Machine Vision</h3>
+              <p class="project-description">
+                Built an automated quality inspection system using deep learning.
+              </p>
+              <div class="project-tags">
+                <span class="tag">TensorFlow</span>
+                <span class="tag">OpenCV</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="project-subheading">Additional Projects</h3>
+          <div class="projects-grid-left">
+            <div class="project-card">
+              <div class="project-icon">🔌</div>
+              <h3 class="project-title">IoT Sensor Network</h3>
+              <p class="project-description">
+                Created a distributed sensor network for real-time environmental monitoring.
+              </p>
+              <div class="project-tags">
+                <span class="tag">IoT</span>
+                <span class="tag">MQTT</span>
+                <span class="tag">Node.js</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-icon">🚁</div>
+              <h3 class="project-title">Drone Autopilot System</h3>
+              <p class="project-description">
+                Designed and implemented autonomous flight control for quadcopter drones.
+              </p>
+              <div class="project-tags">
+                <span class="tag">PX4</span>
+                <span class="tag">C++</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-icon">⚙️</div>
+              <h3 class="project-title">Path Planning Algorithm</h3>
+              <p class="project-description">
+                Developed optimized algorithms for robot motion planning in dynamic environments.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Algorithms</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div id="skills" style="margin-top: 30px;">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-grid-left">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Robot Programming</span>
+                <span class="skill-level">LVL 5</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="100"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">CAD Design</span>
+                <span class="skill-level">LVL 5</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="100"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Machine Learning</span>
+                <span class="skill-level">LVL 4</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
