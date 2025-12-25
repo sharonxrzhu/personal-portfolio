@@ -338,3 +338,34 @@ window.levelUp = function() {
     console.log('%cP LEVEL UP! P', 'color: #fbbf24; font-size: 24px; font-weight: bold;');
     console.log('%cNew Level: ' + newLevel, 'color: #06b6d4; font-size: 16px;');
 };
+
+// Active navigation tracking
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+
+            // Remove active class from all links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add active class to current link
+            const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    });
+}, {
+    threshold: 0.3,
+    rootMargin: '-80px 0px -80% 0px'
+});
+
+// Observe all sections with IDs
+sections.forEach(section => {
+    navObserver.observe(section);
+});
