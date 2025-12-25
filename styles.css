@@ -1,0 +1,997 @@
+/* Import retro gaming font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    --bg-dark: #0a0e27;
+    --bg-card: #1a1f3a;
+    --bg-section: #252b4a;
+    --border-color: #4a5568;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --accent-gold: #fbbf24;
+    --accent-cyan: #06b6d4;
+    --hp-color: #ef4444;
+    --mp-color: #3b82f6;
+    --xp-color: #10b981;
+    --legendary: #ff8c00;
+    --epic: #9333ea;
+    --rare: #3b82f6;
+}
+
+/* Light Mode Colors */
+body.light-mode {
+    --bg-dark: #e8e8e8;
+    --bg-card: #f5f5f5;
+    --bg-section: #ececec;
+    --border-color: #b0b0b0;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --accent-gold: #d97706;
+    --accent-cyan: #0891b2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Navbar height + buffer */
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 0;
+    padding-top: 80px;
+    position: relative;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+    background: linear-gradient(135deg, #e5e5e5 0%, #f0f0f0 100%);
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid var(--accent-cyan);
+    z-index: 1001;
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.light-mode .navbar {
+    background: rgba(245, 245, 245, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 0 #000, 0 0 10px var(--accent-cyan);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-brand:hover {
+    color: var(--accent-cyan);
+    transform: scale(1.05);
+}
+
+body.light-mode .nav-brand {
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1), 0 0 10px var(--accent-cyan);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover {
+    color: var(--accent-gold);
+    border: 2px solid var(--accent-gold);
+    background: var(--bg-section);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: var(--bg-section);
+    border: 2px solid var(--border-color);
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent-gold);
+    background: var(--bg-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+}
+
+.theme-icon {
+    display: block;
+}
+
+/* Scanline effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1000;
+}
+
+body.light-mode::before {
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.03),
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+}
+
+.game-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.character-card {
+    background: transparent;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    background: transparent;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    transition: background 0.3s ease;
+    margin-bottom: 40px;
+    margin-top: 15px;
+}
+
+.card-header::before {
+    content: '';
+    display: none;
+}
+
+/* Projects Highlight Section */
+.projects-highlight-section {
+    padding: 20px;
+    background: var(--bg-section);
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    margin: 0 30px 30px 30px;
+}
+
+.projects-highlight-section .section-title {
+    margin-bottom: 40px;
+}
+
+.projects-highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.project-icon {
+    font-size: 32px;
+}
+
+.project-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: var(--accent-gold);
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+.project-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tag {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    background: var(--bg-section);
+    color: var(--accent-cyan);
+    padding: 5px 10px;
+    border: 1px solid var(--accent-cyan);
+    border-radius: 2px;
+    letter-spacing: 1px;
+}
+
+.character-name {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 32px;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 0 #000, 0 0 10px var(--accent-cyan);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+body.light-mode .character-name {
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1), 0 0 10px var(--accent-cyan);
+}
+
+.character-class {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: var(--accent-cyan);
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+.level {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    color: var(--text-primary);
+    background: var(--bg-section);
+    padding: 8px 16px;
+    display: inline-block;
+    border: 2px solid var(--accent-gold);
+    margin-top: 10px;
+}
+
+/* Profile Section in Header */
+.profile-section {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.profile-left {
+    text-align: center;
+}
+
+.profile-left .character-name {
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+}
+
+.bio-section {
+    background: var(--bg-section);
+    padding: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.bio-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.bio-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.contact-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.contact-item {
+    background: var(--bg-section);
+    border: 2px solid var(--border-color);
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.contact-item:hover {
+    border-color: var(--accent-gold);
+    background: var(--bg-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+}
+
+.contact-icon {
+    font-size: 24px;
+}
+
+.contact-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    text-align: center;
+    color: var(--accent-cyan);
+    letter-spacing: 1px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+/* Status Section */
+.status-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--bg-section);
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Avatar Section - Now only used in profile-left */
+.avatar-section {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--bg-section);
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.avatar-frame {
+    width: 280px;
+    height: 280px;
+    border: 4px solid var(--accent-gold);
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    margin: 0 auto;
+    transition: background 0.3s ease;
+}
+
+body.light-mode .avatar-frame {
+    background: linear-gradient(135deg, #e0e0e0 0%, #d0d0d0 100%);
+}
+
+.avatar-frame::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: var(--accent-gold);
+}
+
+.avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+}
+
+.avatar-icon {
+    font-size: 160px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.status-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.bar-container {
+    flex: 1;
+}
+
+.bar-label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.bar {
+    position: relative;
+    height: 30px;
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 2s ease-out;
+    position: relative;
+    animation: barShine 2s linear infinite;
+}
+
+@keyframes barShine {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.2); }
+    100% { filter: brightness(1); }
+}
+
+.hp-bar {
+    background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+}
+
+.mp-bar {
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+}
+
+.xp-bar {
+    background: linear-gradient(90deg, #059669 0%, #10b981 100%);
+}
+
+.bar-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    z-index: 1;
+}
+
+/* Section Titles */
+.section-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+    text-shadow: 2px 2px 0 #000;
+}
+
+.stats-section,
+.skills-section,
+.equipment-section,
+.achievements-section,
+.quests-section,
+.menu-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--bg-section);
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Core Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.stat-item {
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-item:hover {
+    border-color: var(--accent-cyan);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+}
+
+.stat-icon {
+    font-size: 24px;
+}
+
+.stat-name {
+    flex: 1;
+    font-size: 18px;
+    color: var(--text-secondary);
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent-gold);
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.skill-item {
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    border-color: var(--accent-gold);
+    transform: scale(1.02);
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.skill-name {
+    font-size: 18px;
+    color: var(--text-primary);
+}
+
+.skill-level {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: var(--accent-gold);
+    background: var(--bg-section);
+    padding: 5px 10px;
+    border: 1px solid var(--accent-gold);
+}
+
+.skill-bar {
+    height: 8px;
+    background: var(--bg-section);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-cyan) 0%, var(--accent-gold) 100%);
+    transition: width 2s ease-out;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Equipment Grid */
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.equipment-item {
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.equipment-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.equipment-item.legendary {
+    border-color: var(--legendary);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+}
+
+.equipment-item.epic {
+    border-color: var(--epic);
+    box-shadow: 0 0 15px rgba(147, 51, 234, 0.3);
+}
+
+.equipment-item.rare {
+    border-color: var(--rare);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.equipment-icon {
+    font-size: 36px;
+}
+
+.equipment-name {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.equipment-rarity {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+}
+
+.equipment-item.legendary .equipment-rarity {
+    color: var(--legendary);
+}
+
+.equipment-item.epic .equipment-rarity {
+    color: var(--epic);
+}
+
+.equipment-item.rare .equipment-rarity {
+    color: var(--rare);
+}
+
+/* Achievements */
+.achievements-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.achievement-item {
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.achievement-item.unlocked {
+    border-color: var(--accent-gold);
+}
+
+.achievement-item.unlocked:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+.achievement-item.locked {
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+.achievement-icon {
+    font-size: 36px;
+}
+
+.achievement-name {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.achievement-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Quests */
+.quest-item {
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.quest-item:last-child {
+    margin-bottom: 0;
+}
+
+.quest-item:hover {
+    border-color: var(--accent-cyan);
+}
+
+.quest-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.quest-icon {
+    font-size: 24px;
+}
+
+.quest-title {
+    flex: 1;
+    font-size: 18px;
+    color: var(--text-primary);
+}
+
+.quest-status {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+
+.quest-item.in-progress .quest-status {
+    background: var(--mp-color);
+    color: white;
+}
+
+.quest-item.completed .quest-status {
+    background: var(--xp-color);
+    color: white;
+}
+
+.quest-item.available .quest-status {
+    background: var(--bg-section);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.quest-progress {
+    height: 8px;
+    background: var(--bg-section);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.quest-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--mp-color) 0%, var(--accent-cyan) 100%);
+    transition: width 2s ease-out;
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.menu-item {
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    border-color: var(--accent-gold);
+    background: var(--bg-section);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+.menu-icon {
+    font-size: 36px;
+}
+
+.menu-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    text-align: center;
+    color: var(--accent-gold);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding-top: 120px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .nav-link {
+        font-size: 8px;
+        padding: 8px 10px;
+    }
+
+    .nav-brand {
+        font-size: 14px;
+    }
+
+    .profile-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .profile-left .character-name {
+        font-size: 18px;
+    }
+
+    .character-name {
+        font-size: 20px;
+    }
+
+    .character-class {
+        font-size: 10px;
+    }
+
+    .contact-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .avatar-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .avatar-frame {
+        margin: 0 auto;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .equipment-grid,
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 11px;
+    }
+}
+
+/* Glitch effect for hover states */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+.character-name:hover {
+    animation: glitch 0.3s ease-in-out;
+}
