@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const arrowRight = document.querySelector('.arrow');
 
   // Array of tab IDs in order
-  const tabIds = ['projects', 'about', 'stats', 'skills'];
+  const tabIds = ['projects', 'about', 'skills'];
   let currentTabIndex = 0;
 
   // Function to show a specific section
@@ -43,6 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update current tab index
     currentTabIndex = tabIds.indexOf(targetId);
+
+    // Scroll the side panel to the top
+    const sidePanel = document.querySelector('.panel.side');
+    if (sidePanel) {
+      sidePanel.scrollTop = 0;
+    }
   }
 
   // Add click handlers to tabs

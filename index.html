@@ -21,7 +21,6 @@
         <div class="arrow-left">◀</div>
         <a href="#projects" class="tab active" data-tab="projects">Projects</a>
         <a href="#about" class="tab" data-tab="about">Lore</a>
-        <a href="#stats" class="tab" data-tab="stats">Stats</a>
         <a href="#skills" class="tab" data-tab="skills">Skills</a>
         <div class="arrow">▶</div>
       </div>
@@ -33,7 +32,7 @@
       <div class="panel large" id="about">
         <div class="profile-container">
           <div class="avatar-frame">
-            <img src="images/headshot1.png" alt="Xinrong Zhu" class="avatar-image">
+            <img src="images/headshot2.png" alt="Xinrong Zhu" class="avatar-image">
           </div>
           <h1 class="character-name">Xinrong Zhu</h1>
           <p class="character-role">
@@ -126,33 +125,6 @@
           </div>
         </div>
 
-        <!-- Stats -->
-        <div id="stats">
-          <h2 class="section-title">Stats</h2>
-          <div class="status-bars">
-            <div class="bar-container">
-              <div class="bar-label">HP (HEALTH POINTS)</div>
-              <div class="bar">
-                <div class="bar-fill hp-bar" data-value="95"></div>
-                <span class="bar-text">95/100</span>
-              </div>
-            </div>
-            <div class="bar-container">
-              <div class="bar-label">MP (MOTIVATION POINTS)</div>
-              <div class="bar">
-                <div class="bar-fill mp-bar" data-value="88"></div>
-                <span class="bar-text">88/100</span>
-              </div>
-            </div>
-            <div class="bar-container">
-              <div class="bar-label">XP (EXPERIENCE)</div>
-              <div class="bar">
-                <div class="bar-fill xp-bar" data-value="73"></div>
-                <span class="bar-text">7300/10000</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- Projects -->
         <div id="projects">
@@ -258,37 +230,65 @@
         </div>
 
         <!-- Skills -->
-        <div id="skills" style="margin-top: 30px;">
+        <div id="skills">
           <h2 class="section-title">Skills</h2>
-          <div class="skills-grid-left">
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">Robot Programming</span>
-                <span class="skill-level">LVL 5</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="100"></div>
-              </div>
+
+          <!-- Languages Section -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-language"></i> LANGUAGES
             </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">CAD Design</span>
-                <span class="skill-level">LVL 5</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="100"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">Machine Learning</span>
-                <span class="skill-level">LVL 4</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="80"></div>
-              </div>
+            <div class="skill-tags">
+              <span class="skill-tag">English (Native)</span>
+              <span class="skill-tag">Chinese (Native)</span>
             </div>
           </div>
+
+          <!-- Programming & Hardware Design -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-code"></i> PROGRAMMING & HARDWARE DESIGN
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">HTML/CSS/JavaScript</span>
+              <span class="skill-tag">Verilog</span>
+              <span class="skill-tag">KiCad</span>
+              <span class="skill-tag">LTSpice</span>
+            </div>
+          </div>
+
+          <!-- CAD & Fabrication -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-cube"></i> CAD & FABRICATION
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Fusion 360</span>
+              <span class="skill-tag">3D Printing</span>
+              <span class="skill-tag">CNC (Lathe, Mill, Drill Press)</span>
+              <span class="skill-tag">Soldering</span>
+              <span class="skill-tag">AutoCAD</span>
+            </div>
+          </div>
+
+          <!-- Lab & Tools -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-wrench"></i> LAB & TOOLS
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Oscilloscope</span>
+              <span class="skill-tag">Multimeter</span>
+              <span class="skill-tag">Power Supplies</span>
+              <span class="skill-tag">Microsoft Office</span>
+              <span class="skill-tag">Git/GitHub</span>
+              <span class="skill-tag">VS Code</span>
+            </div>
+          </div>
+
         </div>
 
       </div>
