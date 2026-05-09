@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function showProjectDetail(card, index) {
     // Get project data from the card
     const title = card.querySelector('.project-title').textContent;
-    const description = card.querySelector('.project-description').textContent;
+    const description = card.getAttribute('data-full-description') || card.querySelector('.project-description').textContent;
     const imageSrc = card.querySelector('.project-icon').src;
     const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent);
 
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ${mediaItems.map((_, i) => `<span class="slider-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')}
         </div>` : ''}
         <h2 class="project-detail-title">${title}</h2>
-        <p class="project-detail-description">${description}</p>
+        <div class="project-detail-description">${description.replace(/\\n\\n/g, '\n\n').split(/\n\n+/).map(p => p.trim()).filter(p => p.length > 0).map(p => `<p>${p}</p>`).join('')}</div>
         <div class="project-tags">
           ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
         </div>
